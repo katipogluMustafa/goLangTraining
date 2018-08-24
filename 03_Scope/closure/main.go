@@ -2,8 +2,6 @@ package main
 
 import "fmt"
 
-var k = "some string"
-
 func main(){
 
 	/* Anything declared in the outer scope is accessible in scope that are enclosed by that outer scope */
