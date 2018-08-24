@@ -7,5 +7,5 @@ import (
 
 func main(){
 	fmt.Println(visib.MyName)
-	fmt.Println(visib.Name())
+	visib.PrintName()
 }
