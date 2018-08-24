@@ -6,7 +6,8 @@ func main(){
 	var x int
 	fmt.Printf("%v\n",x)
 
-	increment := func() int { //This is a anonymous function, function without a name
+	/* Below line is a func expression ,you assign a func to a variable*/
+	increment := func() int { //This is a anonymous func, func without a name
 		x++
 		return x
 	}
