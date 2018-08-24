@@ -1,6 +1,6 @@
 package main
 
-import (
+import ( /* Importing just in the file level, can not be seen even from diff file in the same package*/
 	"fmt"
 	"goLangTraining/03_Scope/visibility/visib"
 )
