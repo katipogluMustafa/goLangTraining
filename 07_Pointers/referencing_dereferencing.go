@@ -8,9 +8,9 @@ func main(){
 	fmt.Println("a - ",a)
 	fmt.Println("&a -",&a)
 
-	var b *int = &a
+	var b *int = &a	//b is referencing to a memory address
 	fmt.Println("b",b)
-	fmt.Println("*b",*b)
+	fmt.Println("*b",*b) //dereference b
 	fmt.Println("&b",&b)
 
 	var c **int = &b
