@@ -1,7 +1,7 @@
-#Go Resources
+# Go Resources
 This page is includes all the resources I've came across about Go Programming.
 
-##Links
+## Links
 * [Go Playground](https://play.golang.org/)
 * [Go Doc](https://godoc.org/)
 * [Go Forum](https://forum.golangbridge.org/)
