@@ -48,9 +48,9 @@ func main() {
 	}
 
 	/* If in action */
-	for i:=1; i <= 15; i++{
-		if i % 3 == 0 {
-			fmt.Print(i , " ")
+	for i := 1; i <= 15; i++ {
+		if i%3 == 0 {
+			fmt.Print(i, " ")
 		}
 	}
 }
