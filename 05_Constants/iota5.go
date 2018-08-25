@@ -31,3 +31,8 @@ func main() {
 	We shift the bits		 1 << 20	100000000000000000000
 	In decimal							1048576
 */
+/*
+
+	Read -> https://blog.golang.org/constants
+
+ */
