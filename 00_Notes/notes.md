@@ -1,5 +1,5 @@
 # Go Resources
-This page is includes all the resources I've came across about Go Programming.
+This page includes all the resources I've came across about Go Programming.
 
 ## Links
 * [Go Playground](https://play.golang.org/)
