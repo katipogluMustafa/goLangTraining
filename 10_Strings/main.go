@@ -7,7 +7,6 @@ func main(){
 	fmt.Println(foo)
 	fmt.Printf("%T \n", foo)
 	fmt.Printf("%T \n", rune(foo) )
-	fmt.Printf("%d \n", rune(foo) )
 }
 
 /*
