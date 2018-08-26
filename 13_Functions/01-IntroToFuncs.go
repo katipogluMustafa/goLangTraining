@@ -12,8 +12,8 @@ import (
  * That's where your program starts
  */
 func main() {
-	greet("mustafa")                          // We pass the "mustafa" strings as an argument to the func greet
-	greet("Ahmet")                  		    // "    "    "    "Ahmet"    "     "   "   "       "  "   "    "
+	greet("mustafa")                  // We pass the "mustafa" strings as an argument to the func greet
+	greet("Ahmet")                    // "    "    "    "Ahmet"    "     "   "   "       "  "   "    "
 	greetings("Muhammed", "Abdullah") // We pass two string arguments to the func greetings
 	takeGreetings()
 }
@@ -30,7 +30,7 @@ func greetings(name1 string, name2 string) {
 	fmt.Println("Selamu aleykum", strings.Title(name1), ",", strings.Title(name2), "!")
 }
 
-func takeGreetings(){
+func takeGreetings() {
 	fmt.Println("Aleykum selam")
 }
 
