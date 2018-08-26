@@ -15,6 +15,7 @@ func main() {
 	defer world()
 	hello()
 }
+
 /*
  * defer keyword is used to delay the function
  * when used execution is delayed until all the other codes inside this func runs
