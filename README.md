@@ -12,3 +12,4 @@ This repository is created to store all the go programming examples and resource
 * [Go Lesson Notes By Todd McLeod](https://github.com/GoesToEleven/GolangTraining)
 * [Go Online Resources By Todd McLead](https://goo.gl/PHKgO7)
 * [Dave Cheney ~ Go Online Resources](https://dave.cheney.net/resources-for-new-go-programmers)
+* [Strings In Go](https://www.calhoun.io/6-tips-for-using-strings-in-go/)
