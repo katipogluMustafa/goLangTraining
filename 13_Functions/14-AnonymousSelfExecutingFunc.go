@@ -19,6 +19,7 @@ func main() {
 		fmt.Println(str)
 	}("This is a string")
 }
+
 /*
  * Anonymous self executing functions have no names
  * optionally take parameters, return somethings
