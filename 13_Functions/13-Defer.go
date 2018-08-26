@@ -20,7 +20,7 @@ func main() {
  * defer keyword is used to delay the function
  * when used execution is delayed until all the other codes inside this func runs
  * before the function quits, the deferred functions runs
- * Each deferred function is added to the stack(First in Last out)
+ * Each deferred function is added to the stack(Last In First Out - LIFO)
  * The first deferred func will be executed last
  * The last deferred func will be executed first
  */
