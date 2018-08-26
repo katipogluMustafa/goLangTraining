@@ -44,3 +44,9 @@ func takeGreetings() {
  * greet ---> This one just a variable
  * greet() -> This one a func without parameters
  */
+
+/*
+ *  func             makeGreeter    ()          func() string
+ *  	  Receiver - Identifier - Parameters - Return Type
+ *      No Receiver				 No Parameters
+ */
