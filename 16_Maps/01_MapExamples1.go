@@ -65,9 +65,8 @@ func main() {
 
 }
 
-/* From the blog at golang.org:
-
- * This variable m is a map of string keys to int values:
+/*
+ * A nil map is equivalent to an empty map except that no elements may be added.
 
  * var m map[string]int
  * Map types are reference types, like pointers or slices, and so the value of m above is nil; it doesn't point to an initialized map.

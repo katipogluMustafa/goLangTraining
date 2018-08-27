@@ -1,4 +1,4 @@
-# goLangTraining
+# Go Language Training
 This repository is created to store all the go programming examples and resources I've came across.
 
 
@@ -14,3 +14,4 @@ This repository is created to store all the go programming examples and resource
 * [Dave Cheney ~ Go Online Resources](https://dave.cheney.net/resources-for-new-go-programmers)
 * [Strings In Go](https://www.calhoun.io/6-tips-for-using-strings-in-go/)
 * [ProjectEuler ~ Mathematical Algorithm Questions](https://projecteuler.net/)
+* [An Introduction To Programming In Go ~ Online Book](https://www.golang-book.com/books/intro)
