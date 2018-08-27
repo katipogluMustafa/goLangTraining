@@ -20,7 +20,7 @@ func main() {
 	//  use len() to get length
 	fmt.Println("len: ", len(m))
 
-	delete(m,"k2")
+	delete(m, "k2")
 	fmt.Println("map:", m)
 
 	_, ok := m["k2"]
@@ -32,7 +32,7 @@ func main() {
 	 */
 
 	v, ok := m["k1"]
-	fmt.Println("ok?:", ok , v)
+	fmt.Println("ok?:", ok, v)
 
 	n := map[string]int{"foo": 1, "edu": 2}
 	fmt.Println("map: ", n)
