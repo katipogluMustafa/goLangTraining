@@ -10,10 +10,7 @@ func main() {
 
 	/* 2 */
 	ex2 := func(x int) (int, bool) {
-		if x%2 == 0 {
-			return x / 2, true
-		}
-		return x / 2, false
+		return x / 2, x % 2 == 0
 	}
 	fmt.Println(ex2(8))
 	fmt.Println( greatest(5,6,7,8,1,-5,2,3,-100) )
@@ -26,10 +23,7 @@ func main() {
 
 /* 1 */
 func ex(x int) (int, bool) {
-	if x%2 == 0 {
-		return x / 2, true
-	}
-	return x / 2, false
+	return x / 2, x % 2 == 0
 }
 
 /* 3 */
