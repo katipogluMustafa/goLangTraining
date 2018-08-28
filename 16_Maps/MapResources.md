@@ -7,3 +7,7 @@
 * [Arrays, Slices and Maps](https://www.golang-book.com/books/intro/6)
 * [1- Hashing And Chaining ~ MIT](https://www.youtube.com/watch?v=0M_kIqhwbFo)
 * [2- Table Doubling ~ MIT](https://www.youtube.com/watch?v=BRO7mVIFt08)
+* [3- Open Addressing, Cryptographic Hashing ~ MIT](https://www.youtube.com/watch?v=rvdJDijO2Ro)
+* [An Analysis of Hash Map Implementations in Popular Languages](https://rcoh.me/posts/hash-map-analysis/#golang)
+* [How the Go runtime implements maps efficiently (without generics)](https://dave.cheney.net/2018/05/29/how-the-go-runtime-implements-maps-efficiently-without-generics)
+* [The new kid in town — Go’s sync.Map](https://medium.com/@deckarep/the-new-kid-in-town-gos-sync-map-de24a6bf7c2c)
