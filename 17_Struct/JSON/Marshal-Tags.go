@@ -15,5 +15,5 @@ func main() {
 	p1 := Person{"James", "Bond", 20}
 	bs, _ := json.Marshal(p1)
 	fmt.Println(bs)
-	fmt.Println(string(bs)) // As you can see wisdom score 20
+	fmt.Println(string(bs)) // çıktıdan görüldüğü üzere wisdom score 20
 }
