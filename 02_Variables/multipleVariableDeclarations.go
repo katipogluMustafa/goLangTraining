@@ -9,12 +9,12 @@ func main(){
 	variable10,variable11,variable12 := 10,11,12
 
 	for i := 1; i < 12; i++ {
-		s := fmt.Sprint("%s%d","variable",i)
-		fmt.Println(s)
+		s := fmt.Sprintf("%s%d","variable",i)
+		fmt.Printf(s)
 	}
-
 	fmt.Println(variable1,variable2,variable3)
 	fmt.Println(variable4,variable5,variable6)
 	fmt.Println(variable7,variable8,variable9)
 	fmt.Println(variable10,variable11,variable12)
+
 }
