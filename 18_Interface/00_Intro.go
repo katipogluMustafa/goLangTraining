@@ -23,3 +23,7 @@ func main(){
 	s := Square{10}
 	info(s)
 }
+
+/*
+ * Interface enables functions to have a parameter that can act as a placeholder for multiple types that implement that interface.
+ */
