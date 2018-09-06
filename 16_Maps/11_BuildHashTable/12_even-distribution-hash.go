@@ -24,11 +24,17 @@ func main() {
 	buckets := make([]int, 200)
 	//loop over the words
 	for scanner.Scan() {
-		n := HashBuckett(scanner.Text())
+		n := HashBucketttt(scanner.Text(), 12)
 		buckets[n]++
 	}
 	fmt.Println(buckets[65:123])
 }
-func HashBuckett(word string) int {
-	return int(word[0])
+func HashBucketttt(word string, buckets int) int {
+	var sum int
+
+	for _, v := range word {
+		sum += int(v)
+	}
+
+	return sum % buckets
 }
