@@ -7,9 +7,9 @@ import (
 	"regexp"
 )
 
-const UsernameRegex string = `^@?(\w){1,15}$`
+const UsernameRegex string = `^@?(\w){1,15a}$`
 
-func main(){
+func main() {
 	var usernameInput string
 	flag.StringVar(&usernameInput, "username", "Gopher", "The GopherFace Username To Check")
 	flag.Parse()
