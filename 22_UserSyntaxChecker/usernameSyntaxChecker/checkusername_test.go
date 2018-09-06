@@ -48,7 +48,7 @@ func TestCheckUsernameSyntaxRandomUsernames(t *testing.T) {
 		username := GenerateRandomUsername()
 		result := CheckUsernameSyntax(username)
 		if result != true {
-			t.Errorf("The random username, ", username, ", failed to pass the username check.")
+			t.Error("The random username, ", username, ", failed to pass the username check.")
 			t.Fatal("Quitting!")
 		}
 	}
