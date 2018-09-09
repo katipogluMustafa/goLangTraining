@@ -2,14 +2,14 @@ package main
 
 import "fmt"
 
-func zero1(z int){
+func zero1(z int) {
 	z = 0
 }
-func zero2(z *int){
+func zero2(z *int) {
 	*z = 0
 }
 
-func main(){
+func main() {
 	x := 5
 
 	zero1(x)
