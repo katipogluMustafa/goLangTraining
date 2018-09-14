@@ -1,5 +1,18 @@
 # Slices
 
+* When we initialize a slice with zero value, we get nil slice.
+    * Nil slice has no pointer that points to the underlying array.
+    * pointer: nil length: 0 capacity: 0
+```
+var data []string
+```
+* Empty Struct literal will give you an empty slice
+    * pointer: points to the empty struct length: 0 capactiy: 0
+```
+data := []string{}
+```
+
+
 * If you slice a slice and make changes on the new slice, the original slice will be changed too.
 
 ```
