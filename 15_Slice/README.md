@@ -11,7 +11,7 @@ var data []string
 ```
 data := []string{}
 ```
-
+* append() is value semantic mutation API.
 
 * If you slice a slice and make changes on the new slice, the original slice will be changed too.
 
