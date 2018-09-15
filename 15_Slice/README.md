@@ -1,5 +1,11 @@
 # Slices
 
+* We can convert an array into slice with this syntax.
+```
+var buf [4]byte
+copy(buf[:], anotherSlice[3:4])
+```
+
 * When we initialize a slice with zero value, we get nil slice.
     * Nil slice has no pointer that points to the underlying array.
     * pointer: nil length: 0 capacity: 0
