@@ -22,4 +22,4 @@
 * If the pointer semantics were the choice ,then you can only share.
 * If you choose value semantics, then you can safely make copies.Also there are also times sharing is safe too.
 * It's never safe to make a copy of a value pointer points to.
---
+---
