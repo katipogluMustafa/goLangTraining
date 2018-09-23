@@ -5,7 +5,7 @@
 
 package main
 
-import "goLangTraining/05_Composition/05_Mocking/pubsub"
+import "goLangTraining/03_Design/04_Composition/05_Mocking/pubsub"
 
 type publisher interface {
 	Publish(key string, v interface{}) error

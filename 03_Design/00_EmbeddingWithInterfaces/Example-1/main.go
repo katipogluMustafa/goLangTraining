@@ -29,8 +29,8 @@ func main() {
 	// Values of type user do not implement the interface because pointer
 	// receivers don't belong to the method set of a value.
 
-	sendNotification(u)
-	//sendNotification(&u)
+	//sendNotification(u)
+	sendNotification(&u)
 
 	// ./example1.go:36: cannot use u (type user) as type notifier in argument to sendNotification:
 	//   user does not implement notifier (notify method has pointer receiver)
