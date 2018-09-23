@@ -18,6 +18,11 @@ type server struct {
 	// ...
 }
 
+/*
+ * Factory functions initialize concrete type should return the concrete values or pointers
+ * The caller will deal with decoupling if it is needed.
+ */
+
 func NewServer(host string) Server {
 
 	return &server{host: host}
