@@ -67,4 +67,24 @@ I want this error variables which used in multiple places at the top of the sour
 * We wanna maintain error handling from decoupled state.
     * Because once we switched from decoupled stated to concrete then any improvements we make to error handling against those concrete types could cause a cascading effect of change throughout the code base. 
 
-* Type as context can be powerful when you need to move concrete data across program boundaries where both sides need to work with the concrete data itself then this idea of type as context can come in really really handy to move data across program boundaries maintaining levels of decoupling.            
+* Type as context can be powerful when you need to move concrete data across program boundaries where both sides need to work with the concrete data itself then this idea of type as context can come in really really handy to move data across program boundaries maintaining levels of decoupling.       
+
+## Behaviour As Context
+
+* If you custom error type can have any one of these 4 methods, it doesn't have to have all of them just one, then I want the custom error type to be defined as unexported with unexported fields because if it is unexported with unexported fields, you're forcing that your user can never ever go from decoupled state to that concrete right ? , we can't type assert to the concrete , you're really helping them even though they might feel like they're being restricted.
+
+* Here The 4 Methods:
+    1. Temporary
+    2. Timeout 
+    3. NotFound
+    4. NotAuthorized      
+
+* If you can add anyone of these 4 we can maintain decoupling with custom error types by making the custom error type unexported.    
+
+* Remember, Temporary() covers tremendous amount.Temporary is like blanket statement that you have an integrity issue or you don't.
+* If people complain that you've made the custom error type unexported and you have valid Temporary() method just tell them look we're not going to export the type, even if you feel like you need to inspect it directly yourself.Let's fix Temporary() to be more accurate.
+    * What's brilliant is that we can fix Temporary() to be more accurate without creating a cascading code change.Because this code doesn't change if we change the implementation of the Temporary().
+    
+* If you have a custom error type like the json package did, timeout, temporary, notfound, notauthorized, they don't work for those types.Those types have to be exported.These may need to move from decoupling back to the concrete.It's a scary situation but that is what it is. Most of the time that temporary method is going to work for you.
+
+* So I don't have a problem with custom error types as soon as the error variables don't work.But I'd love to make sure that those custom error types unexported with unexported fields and that we apply method sets of behaviour that the user can bind to to maintain their error handling from decoupling state.       
