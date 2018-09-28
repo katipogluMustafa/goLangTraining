@@ -55,3 +55,16 @@ I want this error variables which used in multiple places at the top of the sour
 
 * What happens if error variable doesn't give the user enough context ?
     * When that happens , next thing we're allowed to do is create our own custom error types.But I do not wanna be polluting our applications with custom error types just for the sake of using them.We wanna use errorString type and variables first until we no longer get enough context from it.  
+
+## Types As Context
+
+* Be careful when we're using empty interface.
+    * Don't use it to define generic APIs.
+    * We should be using empty interface when we have to pass data around where that data can be hidden without problems.
+     * or [in this case](/04_ErrorHandling/03_TypeAsContext/main.go) where we're gonna use the reflect package because what we wanna do is at run-time or dynamically inspect the concrete data.
+        * This is great if you wanna do model validation. reflect package is fantastic for model validation or like we're doing here Unmarshaling.
+        
+* We wanna maintain error handling from decoupled state.
+    * Because once we switched from decoupled stated to concrete then any improvements we make to error handling against those concrete types could cause a cascading effect of change throughout the code base. 
+
+* Type as context can be powerful when you need to move concrete data across program boundaries where both sides need to work with the concrete data itself then this idea of type as context can come in really really handy to move data across program boundaries maintaining levels of decoupling.            
