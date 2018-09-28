@@ -48,5 +48,10 @@ func webCall() error{
 * Anytime I see an error inside if , if error  not equal to nil, what it really saying is, is there a value where a piece of data stored concrete inside of the error interface.If there is we have an error.     
 * What if web call could return multiple errors ? 
     * At that point now we have to deal with different mechanism to give the user enough context to make an informed decision.
+    
+## Error Variables
 
+I want this error variables which used in multiple places at the top of the source code file where they're used.
 
+* What happens if error variable doesn't give the user enough context ?
+    * When that happens , next thing we're allowed to do is create our own custom error types.But I do not wanna be polluting our applications with custom error types just for the sake of using them.We wanna use errorString type and variables first until we no longer get enough context from it.  
