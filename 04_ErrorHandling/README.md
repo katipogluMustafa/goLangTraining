@@ -87,4 +87,22 @@ I want this error variables which used in multiple places at the top of the sour
     
 * If you have a custom error type like the json package did, timeout, temporary, notfound, notauthorized, they don't work for those types.Those types have to be exported.These may need to move from decoupling back to the concrete.It's a scary situation but that is what it is. Most of the time that temporary method is going to work for you.
 
-* So I don't have a problem with custom error types as soon as the error variables don't work.But I'd love to make sure that those custom error types unexported with unexported fields and that we apply method sets of behaviour that the user can bind to to maintain their error handling from decoupling state.       
+* So I don't have a problem with custom error types as soon as the error variables don't work.But I'd love to make sure that those custom error types unexported with unexported fields and that we apply method sets of behaviour that the user can bind to to maintain their error handling from decoupling state.   
+
+## Wrapping Errors
+
+* You can't separate error handling and logging, these are just one thing that we've gotta bring them together if you want any consistency.
+
+* As an insurance policy, to be able to find bugs, when errors occur we log them. Reality is that there is too much activity on our systems today, our user bases grow almost million user almost overnight, so logging that much has huge significant cost.A lot of times logging is going to create large amount of allocations which is going to put a lot of pressure on your heap(that's not unique to go but we're talking about go). 
+
+* So I want you to consider that logging is important but we've got to constantly balance signal to noise in the log because if you're writing data to your logs and you end up never ever reading or using then you're wasting CPU cycles on something that you could've been doing actual real work and it just go beyond the CPU cycles of your process, you're eating network bandwidth, diskIO bandwidth, other complexities that go through the entire system.
+    * During development I really wanna make sure that we always have good level of signal in our logs, and we're logging from trace perspective which minimum we need but then we're logging the errors in a way that there is always enough context if we take the time or need take time to look at it.
+
+How do you make sure there is enough context in the log both from tracing perspective bare minimum and in error perspective not duplicate errors throughout a log and at the same time minimize those logs and then have a consistent pattern that we all can follow and review during code reviews?             
+
+* What do I mean when i am talking about error handling for an error ?
+    * When a piece of code decides to handle an error, it means that this piece of code responsible for logging it, logging the full context of it.It also means that the code has to make decision, can we recover or not ?, if the answer is no then error handling means we shut down the app either with the stack trace on the panic call or with os.Exit() , If we can recover, then that code has to recover the application back to its correct state and keep it going.
+    * At the end of the day when that error returns, it never ever returns error back up, error stops there, either the app recovered or it shuts down. But we've also logged the error.
+
+[ Wrapping Errors](/04_ErrorHandling/06_WrappingErrors/main.go)    
+      
