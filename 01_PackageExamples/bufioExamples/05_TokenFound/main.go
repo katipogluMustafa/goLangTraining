@@ -30,3 +30,8 @@ func main(){
 		fmt.Printf("%s\n", scanner.Text())
 	}
 }
+
+
+/*
+ * Both io.EOF and ErrFinalToken aren’t considered to be “true” errors — Err method will return nil if any of these two caused scanner to stop.
+ */
