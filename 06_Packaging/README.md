@@ -89,6 +89,8 @@ The more decoupled, the more reusable a package is the better it's going to be i
 
 Let's talk about project structure that Bill Kennedy use on all of his projects.
 
+### Kit Project
+
 * I really believe that every company or at least every team should have a kit project.
     * A kit project is a set of foundational packages or APIs that every application you're building should use.
     * So I would wanna see things like 
@@ -124,6 +126,8 @@ Kit                     Application
 └── web/
 ```    
 
+### Application Project
+
 * Every project that you work on is what I call an application project.
     * Application project can have multiple binaries in it. This isn't a one to one.
         * In fact less is always more.
@@ -134,4 +138,41 @@ Kit                     Application
         * internal/platform
         * vendor    
     * This indicates us where packages should go, because each one has very specific purpose.
+
+#### Vendor Folder
+
+We're gonna be using vendor folder DEP, D-E-P.
+
+* That's is the recommended tool for dealing with reproducibility and vendoring.
+* DEP tool basically, on a new project you'l say "dep init", and then just "dep ensure"
+    * And then dep is gonna go and look at all of the third party packages, including kit(kit will be third party package).And you'll maintain all of the source code and the versions of that.
+        * You need this, please own all of the source code unless you've got project as big as kubernetes , you should be able to own all of the source code and the dependencies that you're working with.
+        * Use dep[if you are reading this, research VGO, if it includes this tool in itself, you should be working with it but as of 2018 october, it still has at least 1 year of time to be ready for production.]
+
+### Cmd (Command) 
+
+Command is where the applications are, where the binaries that we're building, it can be one to many. 
+
+* [On this service project](https://github.com/ardanlabs/service), which is implementing a crud-based web service, you can see a folder called "crud" and you can see a "main.go". "Main.go" is that entry-point and it's where we're building. 
+    * That means that "crud" will be the name of the binary. 
     
+    * This is important. If we have multiple binaries we're building they could be under command or in this case since I'm using a "sidecar" architecture, you could see that we have two other binaries, one called "metrics", one called "tracer". These are micro-services that help deal with tracing and metrics for this service.
+    
+    * These are three different binaries that we build. Three different "main.go". 
+    
+    * Now, packages that are defined inside of let's say "crud" are very application specific and they're there to help support start-up, shut-down, maybe some small routing like in a web service. But, **not a lot of business logic**, more **presentational logic**, like in a web service. Taking a request, doing a response. 
+    
+    * Now, what's nice is at the application layer, right at the command layer, these packages can contain things if you really need to. You can get away with packages that contain at this level because they have really no level of reusability. 
+        * They're specific for this app and nothing else. 
+        * You also could have test folders here or packages for integration tests. That can help and work with you as well. 
+        
+    * The application layer is where you have a lot of ability to set policy. You could do some containment like we're doing with handlers. And you're going to have multiple binaries that you're building.        
+    
+### Internal Folder
+
+Packages that need to be imported by multiple programs within the project belong inside the internal/ folder. One benefit of using the name internal/ is that the project gets an extra level of protection from the compiler. No package outside of this project can import packages from inside of internal/. These packages are therefore internal to this project only.
+
+### Internal Platform Folder
+
+Packages that are foundational but specific to the project belong in the internal/platform/ folder. These would be packages that provide support for things like databases, authentication or even marshaling.
+
