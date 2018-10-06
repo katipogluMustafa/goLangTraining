@@ -22,3 +22,14 @@ func r(){
 	k := 5 //k is visible from now on
 	*/
 }
+
+
+
+
+
+
+
+
+
+
+//This is a hidden message. Since you have found it, it is no longer hidden.
