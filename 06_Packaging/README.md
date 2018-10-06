@@ -84,4 +84,54 @@ The more decoupled, the more reusable a package is the better it's going to be i
 
 * The more policy a package has the less reusable it is.
     * When I talk about policy what I mean is if a package is making decisions about how we log, how we do configuration, how we do things, then only other applications that wanna do those things the same can use that package.
+
+## Package Oriented Design
+
+Let's talk about project structure that Bill Kennedy use on all of his projects.
+
+* I really believe that every company or at least every team should have a kit project.
+    * A kit project is a set of foundational packages or APIs that every application you're building should use.
+    * So I would wanna see things like 
+        * log packages if you're not using the standard library.
+        * config packages, if you're not using some third part stuff.
+        * web frameworks you're building.
+    * Whatever it is, I also like to see that laid out in the root of source tree.
+        * Probably don't wanna see, package inside a packages here.
+    * I also want these packages as decoupled as possible.
+        * In other words, I don't want log importing config, or config importing log.
+        * Really these packages shouldn't even be logging at all.
+            * Because if you choose to do some sort of logging, then you're setting policy.
+            * I'm also not a big fan of logging interface, I think that's a big big mistake.
+            * I mean, standard library doesn't log, these foundational packages shouldn't log either.
+    * If these foundational packages have goroutines or paths of execution where events are happening that you wanna log, then I think you should ask for a handler function and the user can implement whatever they want in the handler function and you just call during those events.
+        * So you don't need interfaces all the time.
+        * Asking for a function like a handler function really can help streamline everything and then get you to that logging that you need.
+ * That's the kit, it should be in it's own repo.Hopefully something called kit.
+                      
+```
+Kit                     Application
+
+├── CONTRIBUTORS        ├── cmd/
+├── LICENSE             ├── internal/
+├── README.md           │   └── platform/
+├── cfg/                └── vendor/
+├── examples/
+├── log/
+├── pool/
+├── tcp/
+├── timezone/
+├── udp/
+└── web/
+```    
+
+* Every project that you work on is what I call an application project.
+    * Application project can have multiple binaries in it. This isn't a one to one.
+        * In fact less is always more.
+    * A large team of people can work in an application project if package oriented design is being implemented properly without stepping on each other.
+    * I want you to know that there are four folders in an application project.
+        * cmd 
+        * internal
+        * internal/platform
+        * vendor    
+    * This indicates us where packages should go, because each one has very specific purpose.
     
