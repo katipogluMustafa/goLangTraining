@@ -149,7 +149,7 @@ We're gonna be using vendor folder DEP, D-E-P.
         * You need this, please own all of the source code unless you've got project as big as kubernetes , you should be able to own all of the source code and the dependencies that you're working with.
         * Use dep[if you are reading this, research VGO, if it includes this tool in itself, you should be working with it but as of 2018 october, it still has at least 1 year of time to be ready for production.]
 
-### Cmd (Command) 
+#### Cmd (Command) 
 
 Command is where the applications are, where the binaries that we're building, it can be one to many. 
 
@@ -168,11 +168,51 @@ Command is where the applications are, where the binaries that we're building, i
         
     * The application layer is where you have a lot of ability to set policy. You could do some containment like we're doing with handlers. And you're going to have multiple binaries that you're building.        
     
-### Internal Folder
+#### Internal Folder
 
 Packages that need to be imported by multiple programs within the project belong inside the internal/ folder. One benefit of using the name internal/ is that the project gets an extra level of protection from the compiler. No package outside of this project can import packages from inside of internal/. These packages are therefore internal to this project only.
 
-### Internal Platform Folder
+#### Internal Platform Folder
 
 Packages that are foundational but specific to the project belong in the internal/platform/ folder. These would be packages that provide support for things like databases, authentication or even marshaling.
 
+### Validation
+
+#### Validate Location of a Package
+
+* If you tell me, "Bill, I need a package to do this," 
+    * The first question I'm going to ask is well what does this package provide? 
+        * Is it clear and reasonable that the package provides this and just this. 
+        * We want packages to try to provide one thing and one thing really well. 
+    * Remember when we were talking about API design in layers, primitive layers, lower-level layers. I'd like our packages to be as primitive as they can though eventually you're going to have some lower-level packages and some higher level packages, so we've gotta learn what does this package provide.
+ 
+ 1. If you tell me it's going to provide some business layer
+    * we're going to put it under internal. 
+ 2. If you tell me it provides some foundational support
+    * we're going to put it under platform. 
+ 3. If you can tell me it's very specific to the application, maybe some sort of presentational kind of stuff, request response, 
+    * hey it's gonna go under command for that binary. 
+  
+  **You see, now we're not guessing**.
+
+  
+We use the internal name by the way because we get an extra level of compiler protection. 
+    * The compiler will make sure that if any project tries to import another project's internal packages, the compiler will say no you can't do that !
+    * We get an extra level of protection.  
+    
+So know we can validate where a package belongs based on its purpose.
+* We're not gonna argue about where a package go. It's purpose dictates platform, internal or command.    
+
+* `Kit`
+    * Packages that provide foundational support for the different `Application` projects that exist.
+    * logging, configuration or web functionality.
+
+* `cmd/`
+    * Packages that provide support for a specific program that is being built.
+    * startup, shutdown and configuration.
+* `internal/`
+    * Packages that provide support for the different programs the project owns.
+    * CRUD, services or business logic.
+* `internal/platform/`
+    * Packages that provide internal foundational support for the project.
+    * database, authentication, or marshaling.
