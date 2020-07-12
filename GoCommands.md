@@ -1,3 +1,11 @@
+> go fmt main.go
+* format the source code.
+
+> go build main.go
+* compile the source code.
+
+>go run main.go
+* compile and run the source code.
 
 >go vet main.go
 * shows the problems in the program 
