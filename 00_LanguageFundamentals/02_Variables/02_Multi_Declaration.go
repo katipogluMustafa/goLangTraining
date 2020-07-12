@@ -10,7 +10,7 @@ func main(){
 
 	for i := 1; i < 12; i++ {
 		s := fmt.Sprintf("%s%d","variable",i)
-		fmt.Printf(s)
+		fmt.Println(s)
 	}
 	fmt.Println(variable1,variable2,variable3)
 	fmt.Println(variable4,variable5,variable6)
